@@ -43,7 +43,7 @@ class GradientGenerator extends Component {
 
   onClickGenerate = () => {
     const {colorCodeOne, colorCodeTwo, activeDirectionId} = this.state
-    console.log(activeDirectionId)
+    // console.log(activeDirectionId)
     const valueObj = gradientDirectionsList.filter(
       each => each.directionId === activeDirectionId,
     )
@@ -66,41 +66,47 @@ class GradientGenerator extends Component {
       activeDirectionId,
     } = this.state
     return (
-      <>
-        <AppContainer
-          bgImage={`linear-gradient(to ${directionId} , ${codeOne}, ${codeTwo})`}
-          data-testid="gradientGenerator"
-        >
-          <Container>
-            <Heading>Generate a Css Color Gradient</Heading>
-            <Paragraph>Choose Direction</Paragraph>
-            <GradientDirectionTabContainer>
-              {gradientDirectionsList.map(each => (
-                <GradientDirectionItem
-                  key={each.directionId}
-                  directionObj={each}
-                  isActive={activeDirectionId === each.directionId}
-                  getActiveDirectionId={this.getActiveDirectionId}
-                />
-              ))}
-            </GradientDirectionTabContainer>
-            <Paragraph>Pick the Colors</Paragraph>
-            <ColorInputContainer>
-              <Container>
-                <ColorCode>{colorCodeOne}</ColorCode>
-                <CustomInput type="color" onChange={this.onChangeInputOne} />
-              </Container>
-              <Container>
-                <ColorCode>{colorCodeTwo}</ColorCode>
-                <CustomInput type="color" onChange={this.onChangeInputTwo} />
-              </Container>
-            </ColorInputContainer>
-            <button type="button" onClick={this.onClickGenerate}>
-              Generate
-            </button>
-          </Container>
-        </AppContainer>
-      </>
+      <AppContainer
+        data-testid="gradientGenerator"
+        bgImage={`linear-gradient(to ${directionId} , ${codeOne}, ${codeTwo})`}
+      >
+        <Container>
+          <Heading>Generate a Css Color Gradient</Heading>
+          <Paragraph>Choose Direction</Paragraph>
+          <GradientDirectionTabContainer>
+            {gradientDirectionsList.map(each => (
+              <GradientDirectionItem
+                key={each.directionId}
+                directionObj={each}
+                isActive={activeDirectionId === each.directionId}
+                getActiveDirectionId={this.getActiveDirectionId}
+              />
+            ))}
+          </GradientDirectionTabContainer>
+          <Paragraph>Pick the Colors</Paragraph>
+          <ColorInputContainer>
+            <Container>
+              <ColorCode>{colorCodeOne}</ColorCode>
+              <CustomInput
+                type="color"
+                onChange={this.onChangeInputOne}
+                value={colorCodeOne}
+              />
+            </Container>
+            <Container>
+              <ColorCode>{colorCodeTwo}</ColorCode>
+              <CustomInput
+                type="color"
+                onChange={this.onChangeInputTwo}
+                value={colorCodeTwo}
+              />
+            </Container>
+          </ColorInputContainer>
+          <button type="button" onClick={this.onClickGenerate}>
+            Generate
+          </button>
+        </Container>
+      </AppContainer>
     )
   }
 }

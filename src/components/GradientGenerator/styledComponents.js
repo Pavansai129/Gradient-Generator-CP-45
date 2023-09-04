@@ -16,15 +16,15 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  height: 50%;
+  width: 500px;
+  height: 500px;
 `
 
 export const Heading = styled.h1`
   color: blue;
   font-family: 'Roboto';
   font-weight: 500;
-  font-size: 40px;
+  font-size: 30px;
 `
 
 export const Paragraph = styled.p`
@@ -39,8 +39,8 @@ export const ColorCode = styled(Paragraph)`
 `
 
 export const CustomInput = styled.input`
-  width: 300px;
-  height: 200px;
+  width: 200px;
+  height: 50px;
   border: none;
   outline: none;
   cursor: pointer;
